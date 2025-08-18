@@ -1,0 +1,11 @@
+# FastAPI and server (core packages)
+fastapi
+uvicorn[standard]
+
+# Database (using psycopg2 instead of asyncpg for now)
+sqlalchemy
+psycopg2-binary
+
+# Basic utilities
+python-dotenv 
+email-validator

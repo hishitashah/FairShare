@@ -37,6 +37,6 @@ CREATE TABLE chore_logs (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Indexes for performance (optional, but recommended)
+-- Indexes for performance
 CREATE INDEX idx_chore_logs_user_id ON chore_logs(user_id);
 CREATE INDEX idx_chore_logs_chore_id ON chore_logs(chore_id);
