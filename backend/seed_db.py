@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 
 from .database import engine, Base, SessionLocal
 from .models import User, Chore, ChoreAssignment, ChoreLog
+from .security import hash_password
 
 
 def seed():
@@ -22,7 +23,7 @@ def seed():
             name="Alex Parent",
             gender="female",
             email="parent@example.com",
-            password_hash="dev_hash_only",
+            password_hash=hash_password("dev_password"),
             family_relationship="parent",
             created_by=None,
         )
@@ -30,7 +31,7 @@ def seed():
             name="Jamie Kid",
             gender="male",
             email="kid@example.com",
-            password_hash="dev_hash_only",
+            password_hash=hash_password("dev_password"),
             family_relationship="child",
             created_by=None,
         )

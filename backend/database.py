@@ -3,10 +3,13 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
+from .settings import get_settings
+
 # Load environment variables from .env file
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL")
+settings = get_settings()
+DATABASE_URL = settings.database_url or os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:
     # Default to a local PostgreSQL connection for macOS Homebrew
@@ -15,7 +18,7 @@ if not DATABASE_URL:
 
 # The engine is the main entry point for SQLAlchemy to communicate with the DB.
 # echo=True will log all SQL statements, which is useful for debugging.
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(DATABASE_URL, echo=(settings.env == "dev"))
 
 # A sessionmaker provides a factory for creating new Session objects.
 # A Session is like a "conversation" with the database.
