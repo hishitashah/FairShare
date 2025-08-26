@@ -6,6 +6,7 @@ A web app for families to track chores, measure workload distribution, and sugge
  🛠 Tech Stack
 
 - **Frontend:** React, Next.js  
-- **Backend:** FastAPI with Python, PostgreSQL database, SQLAlchemy ORM
-- **Authentication:** JWT tokens with bcrypt password hashing
-- **Machine Learning:** Scikit-learn for fairness algorithms, pandas for data processing
+- **Backend:** FastAPI + PostgreSQL + SQLAlchemy
+- **ML:** scikit-learn + pandas + numpy
+- **NLP:** TF-IDF + planned BERT models
+- **Infrastructure:** JWT auth + REST API + ML model persistence
